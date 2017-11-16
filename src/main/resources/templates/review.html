@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>Make-up Review</title>
+<link rel="stylesheet" type="text/css" href="style.css"></link>
+<link rel="stylesheet" type="text/css" href="layout.css"></link>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+</head>
+
+<body>
+
+	<header>
+		<h1 th:text="${review.title}"></h1>
+	</header>
+	<ul class="nav">
+		<li><a href="/reviews">Back</a></li>
+	</ul>
+
+	<div class="rev">
+		<div class="container2">
+
+			<section class="review">
+				<div class="indiv">
+					<div class="review__title">
+						<h2 th:text="${'Category: '+ review.category.title}"></h2>
+					</div>
+					<div class="review__image">
+						<img th:src="${review.imageUrl}"></img>
+					</div>
+					<div class="review__description">
+						<p th:text="${review.description}"></p>
+					</div>
+					<div class="rate">
+						<p>Was this review helpful?</p>
+						<div class="rating">
+							<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+
+</body>
+<footer> </footer>
+</html>

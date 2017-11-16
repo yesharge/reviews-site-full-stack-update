@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Category</title>
+<link rel="stylesheet" type="text/css" href="style.css"></link>
+<link rel="stylesheet" type="text/css" href="layout.css"></link>
+<link href="https://fonts.googleapis.com/css?family=Armata"
+	rel="stylesheet"></link>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+</head>
+
+<body>
+	<header>
+		<h1 th:text="${category.title}"></h1>
+	</header>
+	<ul class="nav">
+		<li><a href="/categories">Home</a></li>
+		<li><a href="/reviews">All Reviews</a></li>
+	</ul>
+	<div class="container2">
+
+		<section class="review">
+
+			<div th:each="catt: ${category.reviews}">
+				<div class="indiv">
+					<div class="review__title">
+						<h2 th:text="${catt.title}"></h2>
+					</div>
+					<div class="review__image">
+						<img th:src="${catt.imageUrl}"></img>
+					</div>
+					<div class="review__description">
+						<p th:text="${catt.description}"></p>
+					</div>
+
+
+					<div class="rate">
+						<p>Was this review helpful?</p>
+						<div class="rating">
+							<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</section>
+		<div class="ad__two">
+			<a href="https://www.perpetualkid.com/tattoos-for-the-elderly.html"><img
+				src="/images/ad_2.jpg"></img></a>
+		</div>
+		<div class="ad__one">
+			<a href="https://www.metamucil.com/en-us"><img
+				src="/images/ad_1.jpg"></img></a>
+		</div>
+
+	</div>
+
+</body>
+</html>

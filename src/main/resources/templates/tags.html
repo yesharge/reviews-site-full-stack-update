@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Tag</title>
+</head>
+
+<body>
+	<header>
+		<h1>Tags</h1>
+	</header>
+
+
+	<div th:each="tag: ${tags}">
+		<p>
+			<a th:href="@{/tag(id=${tag.tagId})}" th:text="${tag.tagName}"></a>
+		</p>
+	</div>
+
+</body>
+</html>

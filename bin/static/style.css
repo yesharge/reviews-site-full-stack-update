@@ -1,0 +1,55 @@
+html {
+	font-family: 'Armata', sans-serif;
+}
+
+.container {
+	background-image: url('/images/makeup.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+article {
+	letter-spacing: 2px;
+}
+
+.sub h3 {
+	display: flex;
+	justify-content: center;
+}
+
+.sub {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	width: 100%;
+	grid-column: 1/2;
+	opacity: 0.7;
+}
+
+input[type=text], select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+button {
+	width: 100%;
+	background-color: #333;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: gray;
+}
+
+.review {
+	background-color: lightgray;
+}
