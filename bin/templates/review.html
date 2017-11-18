@@ -33,13 +33,36 @@
 					<div class="review__description">
 						<p th:text="${review.description}"></p>
 					</div>
+					<div class="tag_indiv" >
+						<p th:each="tagss: ${review.tags}" th:text="${tagss.tagName}"></p>
+					</div>
+
 					<div class="rate">
 						<p>Was this review helpful?</p>
 						<div class="rating">
 							<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 						</div>
 					</div>
+					<div class="add_tag">
+						<form class="add-review" method="POST">
+							<label>Enter tag to add: </label> <input name="id" type="hidden"
+								th:value="${review.reviewId}" /> <input type="text"
+								name="tagName" />
+							<button th:formaction="@{/add-tag}">add</button>
+						</form>
+					</div>
+					<div class="remove_tag" >
+				
+						<form method="POST">
+							<label>Enter tag to remove:</label> <input  name="id" type="hidden" th:value="${review.reviewId}"
+								 />
+								 <input type="text" name="tagName" />
+							<button th:formaction="@{/remove-tag}">delete</button>
+						</form>
+					</div>
 				</div>
+
+
 			</section>
 		</div>
 	</div>

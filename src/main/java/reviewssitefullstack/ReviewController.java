@@ -1,5 +1,7 @@
 package reviewssitefullstack;
 
+import java.util.Set;
+
 import javax.annotation.Resource;
 
 import org.springframework.data.domain.Sort;
@@ -64,6 +66,30 @@ public class ReviewController {
 	public String allTags(Model model) {
 		model.addAttribute("tags", tagRepo.findAll());
 		return "tags";
+	}
+
+	@RequestMapping("/add-tag")
+	public String addTag(@RequestParam Long id, String tagName) {
+		Tag newTag = new Tag(tagName);
+		tagRepo.save(newTag);
+		Review review = reviewRepo.findOne(id);
+		review.addTag(newTag);
+		reviewRepo.save(review);
+		return "redirect:/review?id=" + id;
+	}
+	@RequestMapping("/remove-tag")
+	public String removeTag(@RequestParam Long id, String tagName) {
+		Tag deleteTag = tagRepo.findOneByTagName(tagName);
+//		Tag deleteTag = tagRepo.findOne(id);
+//		find review by id
+//		remove 
+//		save
+	Review review = reviewRepo.findOne(id);
+////		Review review = reviewRepo.findOne(id);
+	review.removeTag(deleteTag);
+//		tagRepo.delete(newTag);
+	reviewRepo.save(review);
+		return "redirect:/review?id=" + id;
 	}
 
 }

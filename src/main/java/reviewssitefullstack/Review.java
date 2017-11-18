@@ -62,6 +62,12 @@ public class Review {
 	public String getImageUrl() {
 		return imageUrl;
 	}
+	public void addTag(Tag tagName) {
+		tags.add(tagName);
+	}
+	public void removeTag(Tag tagName) {
+		tags.remove(tagName);
+	}
 
 	@Override
 	public String toString() {
