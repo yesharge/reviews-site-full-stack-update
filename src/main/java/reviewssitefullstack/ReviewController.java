@@ -70,11 +70,14 @@ public class ReviewController {
 
 	@RequestMapping("/add-tag")
 	public String addTag(@RequestParam Long id, String tagName) {
+		if(!tagName.equalsIgnoreCase("null")) {
+			
 		Tag newTag = new Tag(tagName);
+		
 		tagRepo.save(newTag);
 		Review review = reviewRepo.findOne(id);
 		review.addTag(newTag);
-		reviewRepo.save(review);
+		reviewRepo.save(review);}
 		return "redirect:/review?id=" + id;
 	}
 	@RequestMapping("/remove-tag")
