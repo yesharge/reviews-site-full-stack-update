@@ -68,6 +68,12 @@ public class Review {
 	public void removeTag(Tag tagName) {
 		tags.remove(tagName);
 	}
+	public boolean checkIfTagExists(Tag tagName) {
+		if(tags.contains(tagName)) {
+			return true;
+		}
+		return false;
+	}
 
 	@Override
 	public String toString() {

@@ -34,7 +34,7 @@
 					<div class="review__description">
 						<p th:text="${review.description}"></p>
 					</div>
-					<div class="tag_indiv" >
+					<div class="tag_indiv">
 						<p th:each="tagss: ${review.tags}" th:text="${tagss.tagName}"></p>
 					</div>
 
@@ -52,36 +52,60 @@
 							<button th:formaction="@{/add-tag}">add</button>
 						</form>
 					</div>
-				
+					<div class="remove_tag">
 
-					<div class="remove_tag" >
-				
 						<form method="POST">
-							<label>Enter tag to remove:</label> <input  name="id" type="hidden" th:value="${review.reviewId}"
-								 />
-								 <input type="text" name="tagName" />
-							<button type="submit" name="button" id="confirm" th:formaction="@{/remove-tag}" >delete</button>
-						
+							<label>Enter tag to remove:</label> <input name="id"
+								type="hidden" th:value="${review.reviewId}" /> <input
+								type="text" name="tagName" />
+							<button type="submit" name="button" id="confirm"
+								th:formaction="@{/remove-tag}">delete</button>
 						</form>
 					</div>
+					<div id="add_comment">
+						<form class="add-comment" method="POST">
+							<label>Add Comment: </label> <input name="id" type="hidden"
+								th:value="${review.reviewId}" /> <input id="comment_id"
+								type="text" /><input type="text" id="foo01" name="foo01"
+								value="first name" /> <input type="hidden" id="lastName"
+								name="foo02" value="last name"  />
+							<button type="submit" id="confirm_comment">add</button>
+							<span id="comment"></span>
+						</form>
+
+					</div>
+
 				</div>
-
-
 			</section>
 		</div>
 	</div>
-<script>
+	<script>
+		document.getElementById('confirm').onclick = function() {
+			return confirm('Are you sure you want to remove tag?');
+		};
 
+		var commentForm = document.getElementById("add_comment");
+		commentForm.addEventListener("submit", function(e) {
+			var getId = document.getElementById('lastName').value;
+			getId= Math.floor((Math.random() * 10000) + 1);
+			var id = document.getElementById('lastName').id;
+		
+			var newdiv = document.createElement('div');
+			var text = document.getElementById("comment_id").value;
+			var t = document.createTextNode(text);
+			
+			newdiv.appendChild(t);
+			document.getElementById('comment').appendChild(newdiv);
+			e.preventDefault();
+		});
 
- 
-      document.getElementById('confirm').onclick = function() {
-    	  return confirm('Are you sure you want to remove tag?');
-      }; 
-    
-    
-
-</script>
+		function removeInput(removeLink) {
+			var inputElement = removeLink.parentNode;
+			inputElement.remove();
+			counter = counter - 1;
+		}
+	</script>
 </body>
-<footer> </footer>
+
 
 </html>

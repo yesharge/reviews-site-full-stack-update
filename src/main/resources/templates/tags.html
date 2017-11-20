@@ -4,15 +4,24 @@
 
 <head>
 <title>Tag</title>
+<link rel="stylesheet" type="text/css" href="style.css"></link>
+<link rel="stylesheet" type="text/css" href="layout.css"></link>
+<link href="https://fonts.googleapis.com/css?family=Armata"
+	rel="stylesheet"></link>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 </head>
 
 <body>
 	<header>
 		<h1>Tags</h1>
 	</header>
+<ul class="nav">
+		<li><a href="/categories">Home</a></li>
+		<li><a href="/reviews">All Reviews</a></li>
+		
+	</ul>
 
-
-	<div th:each="tag: ${tags}">
+	<div class="tags_page" th:each="tag: ${tags}">
 		<p>
 			<a th:href="@{/tag(id=${tag.tagId})}" th:text="${tag.tagName}"></a>
 		</p>
